@@ -1,4 +1,4 @@
-## Technitium DNS Multi-Architecture Image - Supported architectures AMD64, ARM64, and ARM
+## Technitium DNS Multi-Architecture Image for AMD64, ARM64, and ARM
 Technitium is a great Web based DNS/DHCP server - https://technitium.com/dns/
 
 Latest Version is 5.0.2

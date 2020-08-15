@@ -7,11 +7,11 @@ Technitium DNS Server is an open source tool that can be used for self hosting a
 
 ### The docker run command below will pull the correct architecture (amd64,arm64,arm) for your host.
 
-`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 -v data:/app m400/technitium-dns`
+`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 -v data:/app m400/technitium`
 
 or by version number  
 
-`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 -v data:/app m400/technitium-dns:5.0.2`
+`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 -v data:/app m400/technitium:5.0.2`
 
 Above command maps ports 53 udp and tcp for dns, port 67 udp for built-in dhcp server, port 5380 for web interface, creates a volume named data. 
 
@@ -22,7 +22,7 @@ Above command maps ports 53 udp and tcp for dns, port 67 udp for built-in dhcp s
 version: '3.5'
 services:
   dns_server:
-    image: m400/technitium-dns
+    image: m400/technitium
     networks:
       technitium-network:
         aliases:

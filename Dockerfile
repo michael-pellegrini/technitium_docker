@@ -3,7 +3,7 @@ LABEL maintainer="michaelpellegrinimail@gmail.com"
 LABEL version="5.1"
 WORKDIR /app
 ADD DnsServerPortable.tar.gz /app 
-RUN tar -xjf /app/DnsServerPortable.tar.gz \
+RUN tar -zxf /app/DnsServerPortable.tar.gz \
 && apt update && apt upgrade -y \
 && rm /app/DnsServerPortable.tar.gz
 EXPOSE 5380

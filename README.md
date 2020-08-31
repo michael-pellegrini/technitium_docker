@@ -1,11 +1,11 @@
 ## Technitium DNS Multi-Architecture Image for AMD64, ARM64, and ARM
 Technitium is a great Web based DNS/DHCP server - https://technitium.com/dns/
 
-Latest Version is 5.0.2
+Latest Version is 5.1
 
 Technitium DNS Server is an open source tool that can be used for self hosting a local DNS server for privacy & security or, used for experimentation/testing by software developers on their computer. It works out-of-the-box with no or minimal configuration and provides a user friendly web console accessible using any web browser.
 
-### The docker run command below will pull the correct architecture (amd64,arm64,arm) for your host.
+### The docker run command below will pull the correct architecture (amd64,arm64,arm32) for your host.
 
 `docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 -v data:/app m400/technitium`
 

@@ -4,8 +4,9 @@ LABEL version="5.1"
 WORKDIR /app
 ADD DnsServerPortable.tar.gz /app 
 RUN apt update && apt upgrade -y \
-&& tar -zxf /app/DnsServerPortable.tar.gz --directory . \
-&& rm /app/DnsServerPortable.tar.gz
+&& gunzip /app/DnsServerPortable.tar.gz \
+&& tar -xf /app/DnsServerPortable.tar \
+&& rm /app/DnsServerPortable.tar
 EXPOSE 5380
 EXPOSE 53/udp
 EXPOSE 53/tcp

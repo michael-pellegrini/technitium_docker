@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   dns_server:
-    image: technitium:5.0.2
+    image: m400/technitium
     networks:
       technitium-network:
         aliases:

@@ -12,9 +12,9 @@ services:
     - 67:67/udp
     - 5380:5380
     volumes:
-    - data:/app
+    - data:/app/config
     restart: unless-stopped
 volumes:
-  app:
+  data:
 networks:
   technitium-network:

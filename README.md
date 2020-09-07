@@ -1,7 +1,7 @@
 ## Technitium DNS Multi-Architecture Image for AMD64, ARM64, and ARM
 Technitium is a great Web based DNS/DHCP server - https://technitium.com/dns/
 
-Version is 5.2
+Version 5.2
 
 Technitium DNS Server is an open source tool that can be used for self hosting a local DNS server for privacy & security or, used for experimentation/testing by software developers on their computer. It works out-of-the-box with no or minimal configuration and provides a user friendly web console accessible using any web browser.
 

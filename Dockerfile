@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 LABEL maintainer="michaelpellegrinimail@gmail.com"
-LABEL version="5.1"
+LABEL version="5.2"
 WORKDIR /app
 ADD DnsServerPortable.tar.gz /app 
 RUN apt update && apt upgrade -y \

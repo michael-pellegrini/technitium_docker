@@ -17,7 +17,7 @@ Above command maps ports 53 udp and tcp for dns, port 67 udp for built-in dhcp s
 
 #### Default username 'admin' and password 'admin'
 
-### Docker-compose example 123
+### Docker-compose example
 ```
 version: '3.5'
 services:

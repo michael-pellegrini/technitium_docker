@@ -1,12 +1,9 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 LABEL maintainer="michaelpellegrinimail@gmail.com"
-LABEL version="5.3"
+LABEL version="5.4"
 WORKDIR /app
 ADD DnsServerPortable.tar.gz /app 
-RUN apt update && apt upgrade -y \
-&& gunzip /app/DnsServerPortable.tar.gz \
-&& tar -xf /app/DnsServerPortable.tar \
-&& rm /app/DnsServerPortable.tar
+RUN apt update && apt upgrade -y 
 EXPOSE 5380
 EXPOSE 53/udp
 EXPOSE 53/tcp

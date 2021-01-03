@@ -1,7 +1,7 @@
 ## Technitium DNS Multi-Architecture Image for AMD64, ARM64, and ARM
 Technitium DNS is a full featured Web based DNS/DHCP server - https://technitium.com/dns/
 
-Version 5.5
+Version 5.6
 
 Technitium DNS Server is an open source tool that can be used for self hosting a local DNS server for privacy & security or, used for experimentation/testing by software developers on their computer. It works out-of-the-box with no or minimal configuration and provides a user friendly web console accessible using any web browser.
 
@@ -14,7 +14,7 @@ Technitium DNS Server is an open source tool that can be used for self hosting a
 
 or by version number  
 
-`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 --network=technitium-network --network-alias=technitium-dns -v data:/app/config m400/technitium:5.5`
+`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 --network=technitium-network --network-alias=technitium-dns -v data:/app/config m400/technitium:5.6`
 
 Above command maps ports 53 udp and tcp for dns, port 67 udp for built-in dhcp server, port 5380 for web interface, creates a volume named data that will save server configuration.
 
@@ -35,9 +35,9 @@ services:
     - 53:53/tcp
     - 67:67/udp
     - 5380:5380
-    environment:
-    - PUID=1000                  #https://docs.docker.com/engine/security/userns-remap/
-    - PGID=1000
+    #environment:
+    #- PUID=1000                  #https://docs.docker.com/engine/security/userns-remap/
+    #- PGID=1000
     volumes:
     - data:/app/config
     restart: unless-stopped

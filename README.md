@@ -1,3 +1,4 @@
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/m400/technitium?logo=docker&style=plastic)
 ## Technitium DNS Multi-Architecture Image for AMD64, ARM64, and ARM
 Technitium DNS is a full featured Web based DNS/DHCP server - https://technitium.com/dns/
 

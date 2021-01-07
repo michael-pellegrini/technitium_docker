@@ -37,9 +37,6 @@ services:
     - 53:53/tcp
     - 67:67/udp
     - 5380:5380
-    #environment:
-    #- PUID=1000                  #https://docs.docker.com/engine/security/userns-remap/
-    #- PGID=1000
     volumes:
     - data:/app/config
     restart: unless-stopped

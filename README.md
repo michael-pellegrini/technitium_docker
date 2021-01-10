@@ -48,6 +48,7 @@ volumes:
   data:
 networks:
   technitium-network:
+  ssl:
 
 ```
 

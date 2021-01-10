@@ -1,20 +1,31 @@
-version: '3.5'
+version: '3.7'
 services:
   dns_server:
+    
     image: m400/technitium
+    
     networks:
       technitium-network:
         aliases:
           - technitium-dns
+    
     ports:
     - 53:53/udp
     - 53:53/tcp
     - 67:67/udp
     - 5380:5380
+    
+    environment:
+    - TZ=America/New_York
+    
     volumes:
     - data:/app/config
+    - ssl:/etc/ssl
     restart: unless-stopped
+
 volumes:
   data:
+  ssl:
 networks:
   technitium-network:
+  

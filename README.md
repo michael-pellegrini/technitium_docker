@@ -3,8 +3,6 @@
 ## Technitium DNS Multi-Architecture Image for AMD64, ARM64, and ARM
 Technitium DNS is a full featured Web based DNS/DHCP server - https://technitium.com/dns/
 
-Version 5.6
-
 Technitium DNS Server is an open source tool that can be used for self hosting a local DNS server for privacy & security or, used for experimentation/testing by software developers on their computer. It works out-of-the-box with no or minimal configuration and provides a user friendly web console accessible using any web browser.
 
 ### The docker run command below will pull the correct architecture (amd64,arm64,arm32) for your host.
@@ -12,19 +10,21 @@ Technitium DNS Server is an open source tool that can be used for self hosting a
 
 `docker network create technitium-network`
 
-`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 --network=technitium-network --network-alias=technitium-dns -v data:/app/config m400/technitium`
+`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 --network=technitium-network --network-alias=technitium-dns -e TZ=America/New_York -v data:/app/config -v ssl:/etc/ssl -e TZ=America/New_York m400/technitium`
 
 or by version number  
+`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 --network=technitium-network --network-alias=technitium-dns -e TZ=America/New_York -v data:/app/config -v ssl:/etc/ssl m400/technitium:5.6`
 
-`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 --network=technitium-network --network-alias=technitium-dns -v data:/app/config m400/technitium:5.6`
+Above command maps ports 53 udp for dns and 53 tcp (in case dns response is greater than 512 bytes), port 67 udp for built-in dhcp server, port 5380 for web console, an environmental variable to set timezone. To find your timezone see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-Above command maps ports 53 udp and tcp for dns, port 67 udp for built-in dhcp server, port 5380 for web interface, creates a volume named data that will save server configuration.
+Above command creates two volumes one named data for server config and one named ssl for certficates.   
+Note: ssl certificates must be in  PKCS #12 certificate (.pfx) format and must be CA-signed cannot use self-signed.
 
 ### Default username 'admin' and password 'admin'
 
 ### Docker-compose example
 ```
-version: '3.5'
+version: '3.7'
 services:
   dns_server:
     image: m400/technitium
@@ -37,8 +37,11 @@ services:
     - 53:53/tcp
     - 67:67/udp
     - 5380:5380
+    environment:
+    - TZ=America/New_York
     volumes:
     - data:/app/config
+    - ssl:/etc/ssl
     restart: unless-stopped
 volumes:
   data:

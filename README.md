@@ -46,9 +46,9 @@ services:
     restart: unless-stopped
 volumes:
   data:
+  ssl:
 networks:
   technitium-network:
-  ssl:
 
 ```
 

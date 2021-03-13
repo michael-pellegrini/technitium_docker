@@ -54,7 +54,7 @@ networks:
 ```
 
 ### Additional Information
-1.) Ports 53, 67 and 5380 can not be in use on the host/interface running the container. Docker will bind the container to the default interface using those ports. If second interface is available you can map this interface to the container by specifing the ip address in the port mapping like so  `-p 192.168.1.10:5380:5380` 
+1.) Ports 53, 67 and 5380 can not be in use on the host/interface running the container. Docker will bind the container to the default interface using those ports. If an additional interface is available you can map this interface to the container by specifing the ip address in the port mapping like so  `-p 192.168.1.10:5380:5380` 
 
 2.) The container will set the Default DNS server name as the container ID. This will have to be changed after updating the container image because changing the image creates a new container with a new ID. If not changed service will be broken. The solution is to change the old container ID to new container ID. 
 

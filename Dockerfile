@@ -1,6 +1,6 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
+FROM mcr.microsoft.com/dotnet/aspnet:5.0.4
 LABEL maintainer="michaelpellegrinimail@gmail.com"
-LABEL version="5.6"
+LABEL version="6.0"
 
 ENV TZ=America/New_York
 
@@ -20,5 +20,6 @@ EXPOSE 67/udp
 
 VOLUME [ "/app/config" ]
 VOLUME [ "/etc/ssl" ]
+VOLUME [ "/app/config/logs" ]
 
 ENTRYPOINT [ "dotnet", "/app/DnsServerApp.dll" ]

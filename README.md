@@ -5,7 +5,7 @@ Technitium DNS is a full featured Web based DNS/DHCP server - https://technitium
 
 Technitium DNS Server is an open source tool that can be used for self hosting a local DNS server for privacy & security or, used for experimentation/testing by software developers on their computer. It works out-of-the-box with no or minimal configuration and provides a user friendly web console accessible using any web browser.
 
-To demo the web console  `docker run -p 5380:5380 m400/technitium`  point browser to 127.0.0.1:5380 or <ip>:5380
+To demo the web console  `docker run -p 5380:5380 m400/technitium`  point browser to 127.0.0.1:5380 or ip:5380
 
 ### The docker run command below will pull the correct architecture (amd64,arm64,arm32) for your host.
 #### Creating a docker network with an alias will ensure seamless updates.

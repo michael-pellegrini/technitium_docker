@@ -58,7 +58,7 @@ networks:
 
 2.) The container will set the Default DNS server name as the container ID. This will have to be changed after updating the container image because changing the image creates a new container with a new ID. If not changed service will be broken. The solution is to change the old container ID to new container ID. 
 
-3.) A better solution is to create the container with a user defined network and alias shown in the above example. The network alias should then be set in the settings tab which is saved to the mapped volume.
+3.) A better solution is to create the container with a user defined network and alias shown in the above example. The network alias should then be set in the settings tab which is saved to the mapped volume and will not need changed after updating image to latest version. Simply run `docker-compose down` -> `docker image rm m400/technitium` -> `docker-compose up -d`.
 
 #### Settings tab with alias.
 ![screenshot](https://user-images.githubusercontent.com/47049792/100488543-d4704d00-30dc-11eb-9df2-953eda7c8195.png)

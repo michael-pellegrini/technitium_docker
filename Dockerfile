@@ -1,6 +1,6 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0.4
-LABEL maintainer="michaelpellegrinimail@gmail.com"
-LABEL version="6.0"
+FROM mcr.microsoft.com/dotnet/aspnet:5.0.5
+LABEL maintainer="michaelpellegrini@protonmail.com"
+LABEL version="6.2.3"
 
 ENV TZ=America/New_York
 

@@ -1,7 +1,7 @@
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/m400/technitium?logo=docker&style=plastic)  ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/m400/technitium?logo=docker&style=plastic)  ![Docker Pulls](https://img.shields.io/docker/pulls/m400/technitium?logo=docker&style=plastic)  ![GitHub](https://img.shields.io/github/license/hm400/technitium-docker-build?logo=github&style=plastic) 
 
 ## Technitium DNS Multi-Architecture Image for AMD64, ARM64, and ARM
-Technitium DNS is a full featured Web based DNS/DHCP server - https://technitium.com/dns/
+Technitium DNS is a full featured DNS/DHCP server - https://technitium.com/dns/
 
 Technitium DNS Server is an open source tool that can be used for self hosting a local DNS server for privacy & security or, used for experimentation/testing by software developers on their computer. It works out-of-the-box with no or minimal configuration and provides a user friendly web console accessible using any web browser.
 

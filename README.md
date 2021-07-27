@@ -50,7 +50,7 @@ volumes:
   logs:
 networks:
   technitium-network:
-
+    external: true
 ```
 
 ### Additional Information

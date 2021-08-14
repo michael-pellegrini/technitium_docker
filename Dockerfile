@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0.5
 LABEL maintainer="michaelpellegrini@protonmail.com"
-LABEL version="6.3"
+LABEL version="6.4"
 
 ENV TZ=America/New_York
 
@@ -13,10 +13,13 @@ tar -xf /app/DnsServerPortable.tar; \
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime; echo $TZ > /etc/timezone; \
 rm /app/DnsServerPortable.tar
 
-EXPOSE 5380
 EXPOSE 53/udp
 EXPOSE 53/tcp
 EXPOSE 67/udp
+EXPOSE 80/tcp
+EXPOSE 443/tcp
+EXPOSE 853/tcp
+EXPOSE 5380
 
 VOLUME [ "/app/config" ]
 VOLUME [ "/etc/ssl" ]

@@ -15,9 +15,10 @@ To demo the web console  `docker run -p 5380:5380 m400/technitium`  point browse
 `docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 67:67/udp -p 5380:5380 --network=technitium-network --network-alias=technitium-dns -e TZ=America/New_York -v config:/app/config -v ssl:/etc/ssl -v logs:/app/config/logs -e TZ=America/New_York m400/technitium`
 
 Above command maps ports 53 udp for dns and 53 tcp (in case dns response is greater than 512 bytes), port 67 udp for built-in dhcp server, port 5380 for web console, an environmental variable to set timezone. To find your timezone see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Ports 80,443, and 853 are also available for DNS-over-HTTPS and DNS-over-TLS connections.
 
 Above command creates three volumes named 'config' for server config, 'ssl' for certficates and 'logs' for logs.   
-Note: ssl certificates must be in  PKCS #12 certificate (.pfx) format and must be CA-signed cannot use self-signed.
+Note: ssl certificates must be in  PKCS #12 certificate (.pfx) format, self-signed signed certifcates may not work.
 
 ### Default username 'admin' and password 'admin'
 
@@ -35,6 +36,9 @@ services:
     - 53:53/udp
     - 53:53/tcp
     - 67:67/udp
+    #- 80:80/tcp
+    #- 443:443/tcp
+    #- 853:853/tcp
     - 5380:5380
     environment:
     - TZ=America/New_York

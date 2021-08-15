@@ -18,7 +18,7 @@ Above command maps ports 53 udp for dns and 53 tcp (in case dns response is grea
 Ports 80,443, and 853 are also available for DNS-over-HTTPS and DNS-over-TLS connections.
 
 Above command creates three volumes named 'config' for server config, 'ssl' for certficates and 'logs' for logs.   
-Note: ssl certificates must be in  PKCS #12 certificate (.pfx) format, self-signed signed certifcates may not work.
+Note: ssl certificates must be in  PKCS #12 certificate (.pfx) format, self-signed signed certificates may not work.
 
 ### Default username 'admin' and password 'admin'
 

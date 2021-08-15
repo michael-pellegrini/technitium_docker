@@ -13,6 +13,9 @@ services:
     - 53:53/udp
     - 53:53/tcp
     - 67:67/udp
+    - 80:80/tcp
+    - 443:443/tcp
+    - 853:853/tcp
     - 5380:5380
     
     environment:

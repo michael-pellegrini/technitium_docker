@@ -24,11 +24,14 @@ services:
     volumes:
     - data:/app/config
     - ssl:/etc/ssl
+    - logs:/app/config/logs
+
     restart: unless-stopped
 
 volumes:
   data:
   ssl:
+  logs:
 networks:
   technitium-network:
   

@@ -20,6 +20,7 @@ EXPOSE 80/tcp
 EXPOSE 443/tcp
 EXPOSE 853/tcp
 EXPOSE 5380
+EXPOSE 53443
 
 VOLUME [ "/app/config" ]
 VOLUME [ "/etc/ssl" ]

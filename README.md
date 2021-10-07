@@ -40,6 +40,7 @@ services:
     #- 443:443/tcp
     #- 853:853/tcp
     - 5380:5380
+    #- 53443:53443  #Web console https port
     environment:
     - TZ=America/New_York
     volumes:

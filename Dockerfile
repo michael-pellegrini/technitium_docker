@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0.5
+FROM mcr.microsoft.com/dotnet/runtime:6.0
 LABEL maintainer="michaelpellegrini@protonmail.com"
 
 ENV TZ=America/New_York
@@ -18,8 +18,8 @@ EXPOSE 67/udp
 EXPOSE 80/tcp
 EXPOSE 443/tcp
 EXPOSE 853/tcp
-EXPOSE 5380
-EXPOSE 53443
+EXPOSE 5380/tcp
+EXPOSE 8053/tcp
 
 VOLUME [ "/app/config" ]
 VOLUME [ "/etc/ssl" ]

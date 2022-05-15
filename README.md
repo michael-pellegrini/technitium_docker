@@ -7,9 +7,9 @@ To demo the web console  `docker run -p 5380:5380 m400/technitium`  point browse
 
 ### The docker run command below will pull the correct architecture for your host.
 
-`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 5380:5380 --hostname=technitium-dns -e TZ=America/New_York -v config:/app/config -v ssl:/etc/ssl -v logs:/app/config/logs m400/technitium:latest`
+`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 5380:5380 --hostname=technitium-dns -e DNS_SERVER_LOG_USING_LOCAL_TIME=true -e TZ=America/New_York -v config:/app/config -v ssl:/etc/ssl -v logs:/app/config/logs m400/technitium:latest`
 
-Above command maps ports 53 udp for dns and 53 tcp (in case dns response is greater than 512 bytes), port 5380 for web console, sets the timezone environmental variable. Three volumes are created `config` for server config, `ssl` for certficates and `logs` for logs.   
+Above command maps ports 53 udp for dns and 53 tcp (in case dns response is greater than 512 bytes), port 5380 for web console, sets DNS server to use local time (i.e. the time set by TZ variable), sets the timezone environmental variable. Three volumes are created `config` for server config, `ssl` for certficates and `logs` for logs.   
 
 Note: SSL certificates must be in  PKCS #12 certificate (.pfx) format.
 
@@ -22,18 +22,19 @@ services:
   dns-server:
     image: m400/technitium:latest
     hostname: technitium-dns
-    #networks:         #Create network and uncomment if connecting to another container (reverse proxy, etc..)
+    #networks:  #Create network and uncomment if connecting to another container (reverse proxy, etc..)
     #- technitium-network
     ports:
     - 53:53/udp
     - 53:53/tcp
     - 67:67/udp
-    - 5380:5380
-    #- 80:80/tcp
-    #- 443:443/tcp
-    #- 853:853/tcp
-    #- 53443:53443  
+    - 80:80/tcp
+    - 443:443/tcp
+    - 853:853/tcp
+    - 5380:5380/tcp
+    - 8053:8053/tcp 
     environment:
+    - DNS_SERVER_LOG_USING_LOCAL_TIME=true
     - TZ=America/New_York
     volumes:
     - data:/app/config

@@ -5,7 +5,7 @@ ENV TZ=America/New_York
 
 WORKDIR /app
 
-RUN apt-get update; apt-get upgrade -y; apt-get install curl -y; apt-get clean -y; \
+RUN apt-get update; apt-get install curl -y; apt-get clean -y; \
 curl https://download.technitium.com/dns/DnsServerPortable.tar.gz --output DnsServerPortable.tar.gz; \
 gunzip /app/DnsServerPortable.tar.gz; \
 tar -xf /app/DnsServerPortable.tar; \

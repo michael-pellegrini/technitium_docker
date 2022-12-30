@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/runtime:7.0
 LABEL maintainer="michaelpellegrini@protonmail.com"
 
-ENV TZ=America/New_York
+#ENV TZ=America/New_York
 
 WORKDIR /app
 

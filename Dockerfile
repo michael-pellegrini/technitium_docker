@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/runtime:6.0
-LABEL maintainer="michaelpellegrini@protonmail.coms"
+LABEL maintainer="michaelpellegrini@protonmail.com"
 
 ENV TZ=America/New_York
 

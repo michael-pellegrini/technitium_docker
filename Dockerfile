@@ -5,7 +5,7 @@ ENV TZ=America/New_York
 
 WORKDIR /app
 
-RUN apt-get update; apt-get upgrade -y; apt-get install curl -y; \
+RUN apt-get update; apt-get install curl -y; \
 curl https://download.technitium.com/dns/DnsServerPortable.tar.gz --output DnsServerPortable.tar.gz; \
 curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb --output packages-microsoft-prod.deb; \
 gunzip /app/DnsServerPortable.tar.gz; tar -xf /app/DnsServerPortable.tar; \

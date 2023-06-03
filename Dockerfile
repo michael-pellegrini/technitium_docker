@@ -5,11 +5,11 @@ ENV TZ=America/New_York
 
 WORKDIR /app
 
-RUN apt-get update; apt-get install curl -y; \
+RUN apt-get update; apt-get install curl -y; apt-get install libmsquic=2.1.8 -y; \
 curl https://download.technitium.com/dns/DnsServerPortable.tar.gz --output DnsServerPortable.tar.gz; \
 curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb --output packages-microsoft-prod.deb; \
 gunzip /app/DnsServerPortable.tar.gz; tar -xf /app/DnsServerPortable.tar; \
-dpkg -i packages-microsoft-prod.deb; apt-get install libmsquic=2.1.8 -y; apt-get clean -y; \
+dpkg -i packages-microsoft-prod.deb;  apt-get clean -y; \
 ln -sf /usr/share/zoneinfo/$TZ /etc/localtime; \
 rm DnsServerPortable.tar packages-microsoft-prod.deb 
 

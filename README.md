@@ -7,7 +7,7 @@ To demo the web console  `docker run -p 5380:5380 m400/technitium`  point browse
 
 ### The docker run command below will pull the correct architecture for your host.
 
-`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 5380:5380 --hostname=technitium-dns -e DNS_SERVER_LOG_USING_LOCAL_TIME=true -e DNS_SERVER_DOMAIN=dns-server -v config:/app/config -v ssl:/etc/ssl -v logs:/app/config/logs m400/technitium:latest`
+`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 5380:5380 --hostname=technitium-dns -e DNS_SERVER_LOG_USING_LOCAL_TIME=true --e TZ=America/New_York -e DNS_SERVER_DOMAIN=dns-server -v config:/app/config -v ssl:/etc/ssl -v logs:/app/config/logs m400/technitium:latest`
 
 Above command maps ports 53 udp for dns and 53 tcp (in case dns response is greater than 512 bytes), port 5380 for web console, sets container hostname, sets DNS server to use local time for logs, sets Dns server domain,  three volumes are created `config` for server config, `ssl` for certficates and `logs` for logs.   
 

@@ -36,6 +36,7 @@ services:
     environment:
     - DNS_SERVER_LOG_USING_LOCAL_TIME=true
     - DNS_SERVER_DOMAIN=dns-server
+    - TZ=America/New_York
     volumes:
     - data:/app/config
     - ssl:/etc/ssl
@@ -54,7 +55,7 @@ volumes:
 ### Additional Information
 1.) Any desired service ports can not be in use on the nic that will be running the container. Docker will bind the specfied container ports to the default interface. To bind to a different nic map it by providing the ip address in the port mapping like so  `-p 192.168.1.10:5380:5380` 
 
-2.) Default time is in UTC. If logs need local time set `DNS_SERVER_LOG_USING_LOCAL_TIME=true`
+2.) Default time is in UTC. If logs need local time with a specific timezone. Set `DNS_SERVER_LOG_USING_LOCAL_TIME=true` and `TZ=` to chosen timezone. TZ identifiers can be found at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 3.) The container will set the Default DNS server name as the container ID. This will have to change after updating the container else service is broken. Set `DNS_SERVER_DOMAIN=dns-server` to prevent this.
 

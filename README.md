@@ -59,6 +59,6 @@ volumes:
 
 3.) The container will set the Default DNS server name as the container ID. This will have to change after updating the container else service is broken. Set `DNS_SERVER_DOMAIN=dns-server` to prevent this.
 
-4.) Backup entire Dns Server configuration by navigaing to Settings > General > Scroll to bottom > Backup settinngs
+4.) Backup entire Dns Server configuration by navigating to Settings > General > Scroll to bottom > Backup settinngs
 
 5.) If using `:latest` image update via docker-compose by simply running `docker-compose down` -> `docker image rm m400/technitium:latest` -> `docker-compose up -d`.

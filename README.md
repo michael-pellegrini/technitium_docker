@@ -7,7 +7,7 @@ To demo the web console  `docker run -p 5380:5380 m400/technitium`  point browse
 
 ### The docker run command below will pull the correct architecture for your host.
 
-`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 5380:5380 --hostname=technitium-dns -e DNS_SERVER_LOG_USING_LOCAL_TIME=true -e DNS_SERVER_DOMAIN=dns-server -v config:/app/config -v ssl:/etc/ssl -v logs:/app/config/logs m400/technitium:latest`
+`docker run -d --name technitium -p 53:53/udp -p 53:53/tcp -p 5380:5380 --hostname=technitium-dns -e DNS_SERVER_LOG_USING_LOCAL_TIME=true -e TZ=America/New_York -e DNS_SERVER_DOMAIN=dns-server -v config:/app/config -v ssl:/etc/ssl -v logs:/app/config/logs m400/technitium:latest`
 
 Above command maps ports 53 udp for dns and 53 tcp (in case dns response is greater than 512 bytes), port 5380 for web console, sets container hostname, sets DNS server to use local time for logs, sets Dns server domain,  three volumes are created `config` for server config, `ssl` for certficates and `logs` for logs.   
 
@@ -36,6 +36,7 @@ services:
     environment:
     - DNS_SERVER_LOG_USING_LOCAL_TIME=true
     - DNS_SERVER_DOMAIN=dns-server
+    - TZ=America/New_York
     volumes:
     - data:/app/config
     - ssl:/etc/ssl
@@ -54,10 +55,10 @@ volumes:
 ### Additional Information
 1.) Any desired service ports can not be in use on the nic that will be running the container. Docker will bind the specfied container ports to the default interface. To bind to a different nic map it by providing the ip address in the port mapping like so  `-p 192.168.1.10:5380:5380` 
 
-2.) Default time is in UTC. If logs need local time set `DNS_SERVER_LOG_USING_LOCAL_TIME=true`
+2.) Default time is in UTC. If logs need local time with a specific timezone. Set `DNS_SERVER_LOG_USING_LOCAL_TIME=true` and `TZ=` to chosen timezone. TZ identifiers can be found at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 3.) The container will set the Default DNS server name as the container ID. This will have to change after updating the container else service is broken. Set `DNS_SERVER_DOMAIN=dns-server` to prevent this.
 
-4.) Backup entire Dns Server configuration by navigaing to Settings > General > Scroll to bottom > Backup settinngs
+4.) Backup entire Dns Server configuration by navigating to Settings > General > Scroll to bottom > Backup settinngs
 
 5.) If using `:latest` image update via docker-compose by simply running `docker-compose down` -> `docker image rm m400/technitium:latest` -> `docker-compose up -d`.

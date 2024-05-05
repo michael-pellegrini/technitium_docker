@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 LABEL maintainer="michaelpellegrini@protonmail.com"
 
 ENV TZ=America/New_York
@@ -7,9 +7,9 @@ WORKDIR /app
 
 RUN apt-get update; apt-get install curl -y; \
 curl https://download.technitium.com/dns/DnsServerPortable.tar.gz --output DnsServerPortable.tar.gz; \
-curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb --output packages-microsoft-prod.deb; \
+curl https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb --output packages-microsoft-prod.deb; \
 gunzip /app/DnsServerPortable.tar.gz; tar -xf /app/DnsServerPortable.tar; \
-dpkg -i packages-microsoft-prod.deb; apt-get update; apt install libmsquic=2.1.8 -y;  apt-get clean -y; \
+dpkg -i packages-microsoft-prod.deb; apt-get update; apt install dnsutils libmsquic=2.1.8 -y;  apt-get clean -y; \
 ln -sf /usr/share/zoneinfo/$TZ /etc/localtime; rm DnsServerPortable.tar packages-microsoft-prod.deb 
 
 EXPOSE 53/udp

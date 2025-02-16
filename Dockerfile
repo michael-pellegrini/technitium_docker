@@ -1,5 +1,6 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 LABEL maintainer="michaelpellegrini@protonmail.com"
+LABEL version="13.4.2"
 
 ENV TZ=America/New_York
 
